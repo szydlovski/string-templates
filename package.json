@@ -1,0 +1,24 @@
+{
+  "name": "@szydlovski/string-templates",
+  "version": "0.1.0",
+  "description": "basic string templates",
+  "main": "src/string-templates.js",
+  "scripts": {
+    "test": "nyc mocha test/index.test.js"
+  },
+  "repository": "https://github.com/szydlovski/string-templates",
+  "keywords": [
+    "template",
+    "string"
+  ],
+  "author": "Kamil Szydlowski",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "nyc": "^15.1.0"
+  },
+  "dependencies": {
+    "@szydlovski/deep-property": "^0.2.0"
+  }
+}
