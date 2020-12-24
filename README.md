@@ -85,6 +85,8 @@ getStringTemplateSlots(template); // ['firstName', 'lastName']
 
 Interpolates values from `values` into slots in `template`. The slots have the same syntax as JavaScript template strings - `${propName}` (in this example, the slot would be replaced with the property `propName` from the `values` object). The slots may also take the form of dot paths (i.e. `${foo.bar.baz}`), in which case the values will be extracted from nested objects.
 
+Whitespace around property names is ignored (`${  name  }` is equivalent to `${name}`).
+
 ## isTemplateString(value)
 
 ### *Arguments*
@@ -110,7 +112,7 @@ Tests whether the provided `value` is a valid string template - a string contain
 
 ### *Description*
 
-Parses slots from the template string. Slots are returned as prop names (without braces);
+Parses slots from the template string. Slots are returned as property names (without the surrounding braces).
 
 # CHANGELOG
 
