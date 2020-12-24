@@ -38,6 +38,13 @@ function interpolateStringTemplate(template, values) {
 	return template;
 }
 
+function getStringTemplateSlots(template) {
+	if (typeof template !== 'string') {
+		throw new TypeError('Template must be a string.');
+	}
+	return parseSlots(template).map(propFromSlot);
+}
+
 function isStringTemplate(value) {
 	return typeof value !== 'string' ? false : parseSlots(value).length !== 0;
 }
@@ -52,5 +59,6 @@ module.exports = {
 	interpolateStringTemplate,
 	stringTemplateFactory,
 	isStringTemplate,
+	getStringTemplateSlots,
 	StringTemplateError
 };
