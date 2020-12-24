@@ -34,6 +34,10 @@ function interpolateStringTemplate(template, values) {
 	return template;
 }
 
+function isStringTemplate(string) {
+	return getSlotsFromTemplate(string).length !== 0;
+}
+
 function stringTemplateFactory(template) {
 	return function (values, options) {
 		return interpolateStringTemplate(template, values, options);
@@ -43,5 +47,6 @@ function stringTemplateFactory(template) {
 module.exports = {
 	interpolateStringTemplate,
 	stringTemplateFactory,
+	isStringTemplate,
 	StringTemplateError
 };
