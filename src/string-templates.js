@@ -10,11 +10,11 @@ function interpolateStringTemplate(template, values, options = {}) {
 	);
 
 	if (typeof template !== 'string') {
-		throw new StringTemplateError('Template must be a string.');
+		throw new TypeError('Template must be a string.');
 	}
 
 	if (typeof values !== 'object' || values === null) {
-		throw new StringTemplateError('Values must be an object.');
+		throw new TypeError('Values must be an object.');
 	}
 
 	const slots = (template.match(/(\${.+?})/g) || []).reduce(
