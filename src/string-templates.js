@@ -34,8 +34,8 @@ function interpolateStringTemplate(template, values) {
 	return template;
 }
 
-function isStringTemplate(string) {
-	return getSlotsFromTemplate(string).length !== 0;
+function isStringTemplate(value) {
+	return typeof value !== 'string' ? false : getSlotsFromTemplate(string).length !== 0;
 }
 
 function stringTemplateFactory(template) {
