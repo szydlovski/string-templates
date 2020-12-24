@@ -1,7 +1,7 @@
 const StringTemplateError = require('./StringTemplateError.js');
 const { extractDeepProperty } = require('@szydlovski/deep-property');
 
-function getSlotsFromTemplate(template) {
+function parseSlots(template) {
 	return (template.match(/(\${.+?})/g) || []).reduce(
 		(unique, slot) => (!unique.includes(slot) ? [...unique, slot] : unique),
 		[]
@@ -18,7 +18,7 @@ function interpolateStringTemplate(template, values) {
 		throw new TypeError('Values must be an object.');
 	}
 
-	const slots = getSlotsFromTemplate(template);
+	const slots = parseSlots(template);
 
 	for (const slot of slots) {
 		const prop = slot.substring(2, slot.length - 1).trim();
@@ -35,7 +35,7 @@ function interpolateStringTemplate(template, values) {
 }
 
 function isStringTemplate(value) {
-	return typeof value !== 'string' ? false : getSlotsFromTemplate(string).length !== 0;
+	return typeof value !== 'string' ? false : parseSlots(string).length !== 0;
 }
 
 function stringTemplateFactory(template) {
