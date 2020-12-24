@@ -39,7 +39,7 @@ function interpolateStringTemplate(template, values) {
 }
 
 function isStringTemplate(value) {
-	return typeof value !== 'string' ? false : parseSlots(string).length !== 0;
+	return typeof value !== 'string' ? false : parseSlots(value).length !== 0;
 }
 
 function stringTemplateFactory(template) {
