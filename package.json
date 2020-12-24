@@ -1,6 +1,6 @@
 {
   "name": "@szydlovski/string-templates",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "basic string templates",
   "main": "src/string-templates.js",
   "scripts": {
