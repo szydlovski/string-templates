@@ -1,13 +1,8 @@
 const StringTemplateError = require('./StringTemplateError.js');
 const { extractDeepProperty } = require('@szydlovski/deep-property');
 
-function interpolateStringTemplate(template, values, options = {}) {
-	options = Object.assign(
-		{
-			throw: false,
-		},
-		options
 	);
+function interpolateStringTemplate(template, values) {
 
 	if (typeof template !== 'string') {
 		throw new TypeError('Template must be a string.');
@@ -29,9 +24,7 @@ function interpolateStringTemplate(template, values, options = {}) {
 			const regex = new RegExp(slot.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&'), 'g');
 			template = template.replace(regex, value);
 		} else {
-			if (options.throw) {
-				throw new StringTemplateError(`No value found for ${slot}.`);
-			}
+			throw new StringTemplateError(`No value found for ${slot}.`);
 		}
 	}
 	
