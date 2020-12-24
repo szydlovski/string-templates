@@ -19,6 +19,6 @@
     "nyc": "^15.1.0"
   },
   "dependencies": {
-    "@szydlovski/deep-property": "^0.2.0"
+    "@szydlovski/deep-object": "^0.2.2"
   }
 }

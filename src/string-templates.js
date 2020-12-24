@@ -1,5 +1,5 @@
 const StringTemplateError = require('./StringTemplateError.js');
-const { extractDeepProperty } = require('@szydlovski/deep-property');
+const { extractDeepProperty } = require('@szydlovski/deep-object');
 
 function parseSlots(template) {
 	return (template.match(/(\${.+?})/g) || []).reduce(
