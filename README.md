@@ -66,6 +66,52 @@ getStringTemplateSlots(template); // ['firstName', 'lastName']
 
 ```
 
+# API
+
+## interpolateStringTemplate(template, values)
+
+### *Arguments*
+- template - `string` - template to be filled
+- values - `object` - object from which to source values
+
+### *Returns*
+- `string` - template with interpolated values
+
+### *Throws*
+- `TypeError` on invalid arguments
+- `StringTemplateError` if any of the template slots does not have a corresponding value in `values`
+
+### *Description*
+
+Interpolates values from `values` into slots in `template`. The slots have the same syntax as JavaScript template strings - `${propName}` (in this example, the slot would be replaced with the property `propName` from the `values` object). The slots may also take the form of dot paths (i.e. `${foo.bar.baz}`), in which case the values will be extracted from nested objects.
+
+## isTemplateString(value)
+
+### *Arguments*
+- value - `any`
+
+### *Returns*
+- `boolean` - `true` if the provided values is a valid template string, `false` if it is not
+
+### *Description*
+
+Tests whether the provided `value` is a valid string template - a string containing at least one template slot.
+
+## getTemplateStringSlots(template)
+
+### *Arguments*
+- template - `string`
+
+### *Returns*
+- `array` - strings representing unique slots in the template
+
+### *Throws*
+- `TypeError` on invalid arguments
+
+### *Description*
+
+Parses slots from the template string. Slots are returned as prop names (without braces);
+
 # CHANGELOG
 
 ## 0.1.2 - 2020-12-24
