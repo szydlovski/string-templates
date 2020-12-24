@@ -8,6 +8,10 @@ function parseSlots(template) {
 	);
 }
 
+function propFromSlot(slot) {
+	return slot.substring(2, slot.length - 1).trim();
+}
+
 function interpolateStringTemplate(template, values) {
 
 	if (typeof template !== 'string') {
@@ -21,7 +25,7 @@ function interpolateStringTemplate(template, values) {
 	const slots = parseSlots(template);
 
 	for (const slot of slots) {
-		const prop = slot.substring(2, slot.length - 1).trim();
+		const prop = propFromSlot(slot);
 		const [exists, value] = extractDeepProperty(values, prop);
 		if (exists) {
 			const regex = new RegExp(slot.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&'), 'g');
